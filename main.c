@@ -1,7 +1,7 @@
 /* 
  * @file
  * Dieses Modul dient zum Testen der implementierten Modulen und Funktionen.
- * Author: Marc
+ * 
  *
  * Created on 1. Dezember 2014, 15:46
  */

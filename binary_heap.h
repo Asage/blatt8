@@ -1,6 +1,6 @@
 /* 
  * File:   binary_heap.h
- * Author: Marc
+ * 
  *
  * Created on 1. Dezember 2014, 15:47
  */
