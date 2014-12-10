@@ -110,38 +110,43 @@ extern void heap_destroy(void)
 
 extern void heap_insert(char element)
 {
-    /* Position bestimmen und Wert zuweisen, der Wert ist damit in dem Heap 
-     * aufgenohmen */
-    char *child_node = p_heap + heap_size;
-    *child_node = element;
-
-    /*
-     * Sonderfälle:
-     * 1) Der Heap ist leer => neues Element wird zur Wurzel.
-     * 2) Der reservierte Speicherbereich ist zu klein und muss erweitert werden
-     */
-    /* 1. Fall */
-    if (heap_size == 0)
-    {
-        *p_heap = *child_node;
-        heap_size++;
-        return;
-    }
-
-        /* 2.Fall */
-    else if (heap_size % BLOCK_SIZE == 0)
+    /* Reicht der Speicherplatz aus ?*/
+     if (heap_size % BLOCK_SIZE == 0)
     {
         /* Speicherbereich vergrößern um Block_size*/
         p_heap = (char*) realloc(p_heap, (size_t) (heap_size + BLOCK_SIZE));
 
         /* Fehlerbehandlung */
-        ALLOC_ERR(p_heap);
+        ALLOC_ERR(p_heap);     
+    }
+    
+    /* Position bestimmen und Wert zuweisen, der Wert ist damit in dem Heap 
+     * aufgenohmen */
+    char *child_node = p_heap + heap_size;
+    *child_node = element;
+    
+    /* Schon hier erhöhen, da Element schon aufgenohmen*/
+    heap_size++;
+
+    /*
+     * Fälle:
+     * 1) Der Heap war leer => neues Element wird zur Wurzel. Also ist die 
+     *    momentane Heapgröße 1, da beim hinzufügen direkt inkrementiert wurde. 
+     * 2) Der Heap war ncht leer, also muss möglcherweise etwas vertauscht 
+     *    werden.
+     */
+    
+    /* 1. Fall */
+    if (heap_size == 0)
+    {
+        *p_heap = *child_node;
     }
 
-    /* Prüfe ob Elemente getauscht werden müssen */
-    bottom_up_sort(child_node);
-
-    heap_size++;
+        /* 2.Fall */
+    else
+    {
+        bottom_up_sort(child_node);
+    }
 }
 
 extern bool heap_extract_min(char *min_element)
