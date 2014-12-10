@@ -13,6 +13,7 @@
 
 #include "binary_heap.h"
 
+/*
 static void test1()
 {
     int i;
@@ -32,12 +33,6 @@ static void test1()
         ergebnis[i] = min_element;
     }
 
-    /*
-        if (strcmp(string, ergebnis) != 0)
-        {
-            printf("%%TEST_FAILED%% time=0 testname=test1 (simpleTestHeap)\n");
-        }
-     */
 
 
 }
@@ -59,12 +54,7 @@ static void test2()
         ergebnis[i] = min_element;
     }
 
-    /*
-        if (strcmp(string, ergebnis) != 0)
-        {
-            printf("%%TEST_FAILED%% time=0 testname=test2 (simpleTestHeap)\n");
-        }
-     */
+   
 }
 
 static void test3()
@@ -84,12 +74,7 @@ static void test3()
         ergebnis[i] = min_element;
     }
 
-    /*
-        if (strcmp(string, ergebnis) != 0)
-        {
-            printf("%%TEST_FAILED%% time=0 testname=test3 (simpleTestHeap)\n");
-        }
-     */
+    
 }
 
 static void test4()
@@ -109,12 +94,7 @@ static void test4()
         ergebnis[i] = min_element;
     }
 
-    /*
-        if (strcmp(string, ergebnis) != 0)
-        {
-            printf("%%TEST_FAILED%% time=0 testname=test4 (simpleTestHeap)\n");
-        }
-     */
+   
 }
 
 static void test5()
@@ -134,12 +114,7 @@ static void test5()
         ergebnis[i] = min_element;
     }
 
-    /*
-        if (strcmp("1234", ergebnis) != 0)
-        {
-            printf("%%TEST_FAILED%% time=0 testname=test5 (simpleTestHeap)\n");
-        }
-     */
+    
 }
 
 static void test6()
@@ -169,12 +144,7 @@ static void test6()
         ergebnis[i] = min_element;
     }
 
-    /*
-        if (strcmp(string, ergebnis) != 0)
-        {
-            printf("%%TEST_FAILED%% time=0 testname=test6 (simpleTestHeap)\n");
-        }
-     */
+    
 }
 
 static void test7()
@@ -205,13 +175,9 @@ static void test7()
         ergebnis[i] = min_element;
     }
 
-    /*
-        if (strcmp(string, ergebnis) != 0)
-        {
-            printf("%%TEST_FAILED%% time=0 testname=test6 (simpleTestHeap)\n");
-        }
-     */
+   
 }
+*/
 
 static void test_heap(void)
 {
@@ -249,9 +215,8 @@ static void test_heap(void)
  */
 int main(void)
 {
-    /*
             test_heap();
-     */
+/*
     heap_init();
     test1();
     test2();
@@ -262,6 +227,7 @@ int main(void)
     
     test7();
     heap_destroy();
+*/
     return (EXIT_SUCCESS);
 }
 

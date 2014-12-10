@@ -41,8 +41,7 @@ static int heap_size;
 {\
         if(arg == NULL)\
         {\
-                fprintf(stderr,"Speicherallozierung fehlgeschlagen: %s\n",\
-                strerror(errno));\
+                perror("Fehler bei der Speicheralloziierung");\
                 \
                 exit(EXIT_FAILURE);\
         }\
@@ -110,21 +109,24 @@ extern void heap_destroy(void)
 
 extern void heap_insert(char element)
 {
+    /*Pointer für des neu eingefügte Element*/
+    char *child_node;
+    
     /* Reicht der Speicherplatz aus ?*/
-     if (heap_size % BLOCK_SIZE == 0)
+    if (heap_size % BLOCK_SIZE == 0)
     {
         /* Speicherbereich vergrößern um Block_size*/
         p_heap = (char*) realloc(p_heap, (size_t) (heap_size + BLOCK_SIZE));
 
         /* Fehlerbehandlung */
-        ALLOC_ERR(p_heap);     
+        ALLOC_ERR(p_heap);
     }
-    
+
     /* Position bestimmen und Wert zuweisen, der Wert ist damit in dem Heap 
      * aufgenohmen */
-    char *child_node = p_heap + heap_size;
+    child_node = p_heap + heap_size;
     *child_node = element;
-    
+
     /* Schon hier erhöhen, da Element schon aufgenohmen*/
     heap_size++;
 
@@ -135,7 +137,7 @@ extern void heap_insert(char element)
      * 2) Der Heap war ncht leer, also muss möglcherweise etwas vertauscht 
      *    werden.
      */
-    
+
     /* 1. Fall */
     if (heap_size == 0)
     {
